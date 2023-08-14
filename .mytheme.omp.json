@@ -8,7 +8,7 @@
           "type": "session",
           "style": "diamond",
           "foreground": "#77E4F7",
-          "template": "{{ if .SSHSession }}\ueba9{{ end }}{{ .UserName }}@{{ .HostName }} "
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} "
         },
         {
           "foreground": "#77E4F7",
