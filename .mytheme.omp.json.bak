@@ -2,85 +2,75 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "blocks": [
     {
-      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "properties": {
-            "cache_duration": "none"
-          },
-          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} ",
-          "foreground": "#77E4F7",
           "type": "session",
-          "style": "diamond"
+          "style": "diamond",
+          "foreground": "#77E4F7",
+          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} "
         },
         {
+          "foreground": "#77E4F7",
           "properties": {
-            "cache_duration": "none",
             "style": "full"
           },
+          "style": "plain",
           "template": "{{ .Path }} ",
-          "foreground": "#77E4F7",
-          "type": "path",
-          "style": "plain"
+          "type": "path"
         },
         {
+          "foreground": "#FFE700",
+          "style": "plain",
           "properties": {
-            "cache_duration": "none",
             "fetch_stash_count": true,
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
           "template": "[ {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \udb80\udd93 {{ .StashCount }}{{ end }} ]",
-          "foreground": "#FFE700",
-          "type": "git",
-          "style": "plain"
+          "type": "git"
         }
-      ]
+      ],
+      "type": "prompt"
     },
     {
-      "type": "prompt",
       "alignment": "right",
       "segments": [
         {
+          "foreground": "#00C5C7",
           "properties": {
-            "cache_duration": "none",
             "time_format": "15:04:05"
           },
+          "style": "plain",
           "template": " {{ .CurrentDate | date .Format }} ",
-          "foreground": "#00C5C7",
-          "type": "time",
-          "style": "plain"
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
-        {
-          "properties": {
-            "cache_duration": "none",
-            "fetch_version": false
-          },
-          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
-          "foreground": "#43D426",
-          "powerline_symbol": "\ue0b0",
-          "type": "python",
-          "style": "plain"
-        },
-        {
-          "properties": {
-            "cache_duration": "none"
-          },
-          "template": "❯ ",
-          "foreground": "#43D426",
-          "type": "text",
-          "style": "plain"
+          "type": "time"
         }
       ],
-      "newline": true
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#43D426",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "plain",
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+          "type": "python"
+        },
+        {
+          "foreground": "#43D426",
+          "style": "plain",
+          "template": "\u276f ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
     }
   ],
-  "version": 3
+  "version": 2
 }
